@@ -1,0 +1,273 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "ubuntu", sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    background: #AA00FF no-repeat center center fixed;
+    background-size: 80%;
+    position: fixed;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+body:before {
+    content: "";
+    height: 0px;
+    padding: 0px;
+    border: 110em solid #AA00FF;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    z-index: 2;
+    display: block;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: puff 0.5s 1.8s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, borderRadius 0.2s 2.3s linear forwards;
+}
+
+.profile-card {
+    background: #FFB300;
+    text-align: center;
+    width: 56px;
+    height: 56px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 70px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
+    animation: init 0.5s 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards, moveDown 1s 0.8s cubic-bezier(0.6, -0.28, 0.735, 0.045) forwards, moveUp 1s 1.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards, materia 0.5s 2.7s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+}
+
+.card-header {
+    background: #212121;
+    color: #EEEEEE;
+    margin: auto;
+    opacity: 0;
+    text-align: center;
+    animation: moveIn 1s 3.1s ease forwards;
+}
+
+.pic {
+    display: inline-block;
+    padding: 8px;
+    background: linear-gradient(130deg, #74b9ff, #e66767);
+    margin: auto;
+    border-radius: 50%;
+    background-size: 200% 200%;
+    animation: animation-gradient 2s linear infinite;
+}
+
+@keyframes animation-gradient {
+    25% {
+        background-position: left bottom;
+    }
+    50% {
+        background-position: right bottom;
+    }
+    75% {
+        background-position: right top;
+    }
+    100% {
+        background-position: left top;
+    }
+}
+
+.pic img {
+    display: block;
+    width: 120px;
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+.name {
+    color: #EEEEEE;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.desc {
+    font-size: 22px;
+    margin-top: 10px;
+    color: #AA00FF;
+    font-weight: 200;
+    text-align: center;
+}
+
+.profile-card .quote {
+    display: inline-block;
+    background: #212121;
+    text-align: center;
+    opacity: 0;
+    animation: moveIn 1s 3.1s ease forwards;
+}
+
+.quote p2 {
+    color: #AA00FF;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.quote p1 {
+    font-size: 14px;
+    color: #EEEEEE;
+}
+
+.card-footer {
+    padding-top: 40px;
+}
+
+.sm {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    animation: moveIn 1s 3.1s ease forwards;
+}
+
+.sm a {
+    color: #f7f5f5;
+    width: 56px;
+    font-size: 22px;
+    transition: .3s linear;
+}
+
+.sm a:hover {
+    color: #AA00FF;
+}
+
+@keyframes init {
+    0% {
+        width: 0px;
+        height: 0px;
+    }
+    100% {
+        width: 56px;
+        height: 56px;
+        margin-top: 0px;
+        opacity: 1;
+    }
+}
+
+@keyframes puff {
+    0% {
+        top: 100%;
+        height: 0px;
+        padding: 0px;
+    }
+    100% {
+        top: 50%;
+        height: 100%;
+        padding: 0px 100%;
+    }
+}
+
+@keyframes moveDown {
+    0% {
+        top: 50%;
+    }
+    50% {
+        top: 40%;
+    }
+    100% {
+        top: 100%;
+    }
+}
+
+@keyframes moveUp {
+    0% {
+        background: #FFB300;
+        top: 100%;
+    }
+    50% {
+        top: 40%;
+    }
+    100% {
+        top: 50%;
+        background: #E0E0E0;
+    }
+}
+
+@keyframes materia {
+    0% {
+        background: #E0E0E0;
+    }
+    50% {
+        border-radius: 4px;
+    }
+    100% {
+        width: 440px;
+        height: 280px;
+        background: #212121;
+        border-radius: 4px;
+    }
+}
+
+@keyframes moveIn {
+    0% {
+        margin-top: 100px;
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        margin-top: 30px;
+    }
+}
+
+@media screen and (min-aspect-ratio:4/3) {
+    body {
+        background-size: 100% auto;
+    }
+    body:before {
+        width: 0px;
+    }
+    @keyframes puff {
+        0% {
+            top: 100%;
+            width: 0px;
+            padding-bottom: 0px;
+        }
+        100% {
+            top: 50%;
+            width: 100%;
+            padding-bottom: 100%;
+        }
+    }
+}
+
+@media screen and (min-height:480px) {
+    .profile-card .card-header {
+        width: 150px;
+        height: 150px;
+        padding: 10px 10px;
+        display: block;
+        float: none;
+        border-right: none;
+    }
+    @keyframes materia {
+        0% {
+            background: #E0E0E0;
+        }
+        50% {
+            border-radius: 4px;
+        }
+        100% {
+            width: 280px;
+            height: 480px;
+            background: #212121;
+            border-radius: 4px;
+        }
+    }
+}
